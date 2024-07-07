@@ -24,7 +24,7 @@ void Todo()
         Console.WriteLine("What do you want to do?\n[S]ee all todos\n[A]dd a todo\n[R]emove a todo\n[E]xit");
         string userChoice = Console.ReadLine().ToLower();
         if(ChoiceIsCorrect(userChoice))
-        TodoAction(userChoice, out isExit, ref userToDoList);
+        TodoAction(userChoice, out isExit, userToDoList);
         else
         {
             Console.WriteLine("Incorrect Input");
@@ -47,7 +47,7 @@ bool ChoiceIsCorrect(string userChoice)
 }
 
 
-void TodoAction(string userChoice, out bool isExit, ref List<string> userToDoList)
+void TodoAction(string userChoice, out bool isExit, List<string> userToDoList)
 {
     switch (userChoice)
     {
