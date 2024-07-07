@@ -36,19 +36,13 @@ void Todo()
 
 bool ChoiceIsCorrect(string userChoice)
 {
-    if(userChoice == "s" || userChoice == "a" || userChoice == "r" || userChoice == "e")
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return userChoice == "s" || userChoice == "a" || userChoice == "r" || userChoice == "e";
 }
 
 
 void TodoAction(string userChoice, out bool isExit, List<string> userToDoList)
 {
+    isExit = true;
     switch (userChoice)
     {
         case "s":
@@ -65,7 +59,6 @@ void TodoAction(string userChoice, out bool isExit, List<string> userToDoList)
             {
                 Console.WriteLine("Todo list is empty");
             }
-            isExit = true;
             break;
         case "a":
             bool isAdded = false;
@@ -85,7 +78,6 @@ void TodoAction(string userChoice, out bool isExit, List<string> userToDoList)
                 }
             }
             while (!isAdded);
-            isExit = true;
             break;
         case "r":
             bool isRemoved = false;
@@ -100,12 +92,11 @@ void TodoAction(string userChoice, out bool isExit, List<string> userToDoList)
 
                     Console.WriteLine("Input index of removing todo");
                     var removeIndexString = Console.ReadLine();
-                    if (int.TryParse(removeIndexString, out int removeIndex) && removeIndex <= userToDoList.Count)
+                    if (int.TryParse(removeIndexString, out int removeIndex) && 0 < removeIndex && removeIndex <= userToDoList.Count)
                     {
                         userToDoList.RemoveAt(removeIndex - 1);
                         isRemoved = true;
                         Console.WriteLine("Todo is removed");
-
                     }
                     else
                     {
@@ -114,7 +105,6 @@ void TodoAction(string userChoice, out bool isExit, List<string> userToDoList)
                 }
                 while (!isRemoved);
             }
-            isExit = true;
             break;
         default:
             isExit = false;
