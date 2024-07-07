@@ -11,7 +11,7 @@ void Main()
 
 void Welcome()
 {
-    Console.WriteLine("Hello!");
+    Console.WriteLine("Hello!!");
 }
 
 
