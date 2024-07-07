@@ -18,7 +18,7 @@ void Welcome()
 void Todo()
 {
     bool isExit = true;
-    List<string> userToDoList = ["hello", "goodbye"];    
+    List<string> userToDoList = new();
     do
     {
         Console.WriteLine("What do you want to do?\n[S]ee all todos\n[A]dd a todo\n[R]emove a todo\n[E]xit");
